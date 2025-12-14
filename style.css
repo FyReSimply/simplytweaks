@@ -1,0 +1,77 @@
+/* Import Inter Font */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+/* CSS Variables */
+:root {
+    --bg-dark: #0b0b0f;
+    --card-dark: #121218;
+    --card-lighter: #1a1a23;
+    --primary: #a855f7;
+    --accent-orange: #f97316;
+}
+
+/* Base Styles */
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--bg-dark);
+    color: #e0e0e0;
+}
+
+/* Custom Text Gradient */
+.purple-gradient-text {
+    background: linear-gradient(to right, #c084fc, #a855f7);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* --- Marquee Animation (Benefits Section) --- */
+.marquee-container {
+    overflow: hidden;
+    white-space: nowrap;
+    position: relative;
+    mask-image: linear-gradient(to right, transparent, black 5%, black 95%, transparent);
+}
+
+.marquee-content {
+    display: flex;
+    width: max-content;
+    animation: scroll 35s linear infinite;
+}
+
+.marquee-content:hover {
+    animation-play-state: paused;
+}
+
+@keyframes scroll {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+}
+
+/* --- FAQ Accordion Styles --- */
+.faq-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease-in-out;
+}
+
+.faq-item.active .faq-icon {
+    transform: rotate(180deg);
+}
+
+/* --- FPS Bar Animations --- */
+.fps-bar-container {
+    position: relative;
+    overflow: hidden;
+}
+
+.fps-bar-glow {
+    position: absolute;
+    inset: 0;
+    background-color: rgba(255, 255, 255, 0.2);
+    animation: pulse-glow 2s infinite;
+}
+
+@keyframes pulse-glow {
+    0%, 100% { opacity: 0.1; }
+    50% { opacity: 0.3; }
+}
